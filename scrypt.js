@@ -12,7 +12,6 @@ async function getJoke() {
 
     document.getElementById('joke').innerText = jokeText;
 
-    // Toca o som
     const sound = document.getElementById('laughSound');
     sound.currentTime = 0;
     sound.play();
