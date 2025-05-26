@@ -1,12 +1,12 @@
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Comic Neue", cursive;
     margin: 20px;
-    background-color: #f0f0f0;
+    background-color: #332f2f;
 }
 
 h1 {
     text-align: center;
-    color: #333;
+    color: #ffffff;
 }
 
 #periodic-table {
@@ -19,15 +19,15 @@ h1 {
 }
 
 .element {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 5px;
-    cursor: pointer;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    transition: transform 0.2s;
+    border-radius: 4px;
+    text-align: center;
+    font-size: 0.7em;
+    color: #000;
+}
+
+/* Melhorar contraste para texto */
+.element:nth-child(n) {
+    text-shadow: 0 0 2px white;
 }
 
 .element:hover {
@@ -75,3 +75,39 @@ h1 {
 #modal-info p {
     margin: 5px 0;
 }
+.comic-neue-light {
+    font-family: "Comic Neue", cursive;
+    font-weight: 300;
+    font-style: normal;
+  }
+  
+  .comic-neue-regular {
+    font-family: "Comic Neue", cursive;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  .comic-neue-bold {
+    font-family: "Comic Neue", cursive;
+    font-weight: 700;
+    font-style: normal;
+  }
+  
+  .comic-neue-light-italic {
+    font-family: "Comic Neue", cursive;
+    font-weight: 300;
+    font-style: italic;
+  }
+  
+  .comic-neue-regular-italic {
+    font-family: "Comic Neue", cursive;
+    font-weight: 400;
+    font-style: italic;
+  }
+  
+  .comic-neue-bold-italic {
+    font-family: "Comic Neue", cursive;
+    font-weight: 700;
+    font-style: italic;
+  }
+  
