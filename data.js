@@ -1,4 +1,4 @@
-[
+const colecaoElementos = [
   {
     "massaAtomica": "1.00794(4)",
     "numeroAtomico": "1",
@@ -2831,4 +2831,4 @@
     "linha": 7,
     "coluna": 18
   }
-]
+];

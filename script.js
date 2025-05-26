@@ -1,38 +1,44 @@
-function carregarTabela() {
-  const container = document.getElementById('dados_quimica.js');
-  container.innerHTML = ''; 
+document.addEventListener('DOMContentLoaded', () => {
+  const periodicTable = document.getElementById('periodic-table');
+  const modal = document.getElementById('element-modal');
+  const closeBtn = document.querySelector('.close');
 
-  elementos.forEach(elem => {
-    const div = document.createElement('div');
-    div.className = 'elemento';
-    div.innerHTML = `<strong>${elem.simbolo}</strong><br>${elem.numeroAtomico}`;
+  // Criar elementos na tabela
+  colecaoElementos.forEach(elemento => {
+      const divElement = document.createElement('div');
+      divElement.className = 'element';
+      divElement.style.gridRow = elemento.linha;
+      divElement.style.gridColumn = elemento.coluna;
+      divElement.style.backgroundColor = elemento.corGrupo;
 
-    if (elem.linha && elem.coluna) {
-      div.style.gridRow = elem.linha;
-      div.style.gridColumn = elem.coluna; 
-    }
-    div.onclick = () => mostraInfo(elem);
-    container.appendChild(div);
+      divElement.innerHTML = `
+          <div class="numero">${elemento.numeroAtomico}</div>
+          <div class="simbolo">${elemento.simbolo}</div>
+          <div class="nome">${elemento.nome}</div>
+      `;
+
+      divElement.addEventListener('click', () => showModal(elemento));
+      periodicTable.appendChild(divElement);
   });
-}
 
-function mostraInfo(elem) {
-  const info = document.getElementById('info');
-  info.innerHTML = `
-  <h2>${elem.nome} (${elem.simbolo})</h2>
-  <p><strong>Número Atômico:</strong> ${elem.numeroAtomico}</p>
-  <p><strong>Grupo:</strong> ${elem.grupo}</p>
-  <p><strong>Massa Atômica:</strong> ${elem.massaAtomica}</p>
-  <p><strong>Estado Padrão:</strong> ${elem.estadoPadrao}</p>
-  <p><strong>Configuração Eletrônica:</strong> ${elem.configuracaoEletronica}</p>
-  <p><strong>Eletronegatividade:</strong> ${elem.eletroNegatividade}</p>
-  <p><strong>Raio Atômico:</strong> ${elem.raioAtomico}</p>
-  <p><strong>Tipo de Ligação:</strong> ${elem.tipoLigacao}</p>
-  <p><strong>Raio Atômico:</strong> ${elem.raioAtomico}</p>
-  <p><strong>Ponto de fusão:</strong> ${elem.pontoFusao}</p>
-  <p><strong>Ponto de ebulição:</strong> ${elem.pontoEbulição}</p>
-  <p><strong>Descoberto em:</strong> ${elem.anoDescoberta}</p>
-  `;
-  info.style.display = 'block';
-}
-window.onload = carregarTabela;
+  // Mostrar modal
+  function showModal(elemento) {
+      const modalInfo = document.getElementById('modal-info');
+      modalInfo.innerHTML = `
+          <h2>${elemento.nome} (${elemento.simbolo})</h2>
+          <p>Número Atômico: ${elemento.numeroAtomico}</p>
+          <p>Massa Atômica: ${elemento.massaAtomica}</p>
+          <p>Grupo: ${elemento.grupo}</p>
+          <p>Estado: ${elemento.estadoPadrao}</p>
+          <p>Eletronegatividade: ${elemento.eletronegatividade || 'N/A'}</p>
+          <p>Ponto de Fusão: ${elemento.pontoDeFusao || 'N/A'} K</p>
+      `;
+      modal.style.display = 'block';
+  }
+
+  // Fechar modal
+  closeBtn.onclick = () => modal.style.display = 'none';
+  window.onclick = (event) => {
+      if (event.target === modal) modal.style.display = 'none';
+  }
+});

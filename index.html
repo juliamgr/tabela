@@ -1,35 +1,24 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tabela de Elementos Químicos</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Tabela Periódica Interativa</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <h1>Tabela Periódica</h1>
+    <div id="periodic-table"></div>
 
-    <div class="container">
-        <h1>Tabela Periódica Interativa</h1>
-        
-        <div class="legenda">
-            <div class="legenda-item"><div class="legenda-cor" style="background-color: var(--non-metal);"></div>Não-metais</div>
-            <div class="legenda-item"><div class="legenda-cor" style="background-color: var(--noble-gas);"></div>Gases Nobres</div>
-            <div class="legenda-item"><div class="legenda-cor" style="background-color: var(--alkali-metal);"></div>Metais Alcalinos</div>
-            <div class="legenda-item"><div class="legenda-cor" style="background-color: var(--alkaline-earth);"></div>Metais Alcalino-Terrosos</div>
-            <div class="legenda-item"><div class="legenda-cor" style="background-color: var(--metalloid);"></div>Metaloides</div>
-            <div class="legenda-item"><div class="legenda-cor" style="background-color: var(--halogen);"></div>Halogênios</div>
-            <div class="legenda-item"><div class="legenda-cor" style="background-color: var(--transition-metal);"></div>Metais de Transição</div>
-            <div class="legenda-item"><div class="legenda-cor" style="background-color: var(--post-transition);"></div>Outros Metais</div>
-            <div class="legenda-item"><div class="legenda-cor" style="background-color: var(--lanthanide);"></div>Lantanídeos</div>
-            <div class="legenda-item"><div class="legenda-cor" style="background-color: var(--actinide);"></div>Actinídeos</div>
+    <!-- Modal de Informações -->
+    <div id="element-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <div id="modal-info"></div>
         </div>
-        
-        <div id="tabela"></div>
-        <div id="info"></div>
     </div>
-    
-          <script src="script.js"></script>
-      <script src="dados_quimica.js"></script>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
