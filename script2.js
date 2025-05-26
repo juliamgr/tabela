@@ -22,7 +22,6 @@ document.addEventListener('DOMContentLoaded', () => {
         divElement.className = 'element';
         divElement.style.gridRow = elemento.linha;
         divElement.style.gridColumn = elemento.coluna;
-        // Aplicar cor do grupo
         divElement.style.backgroundColor = grupoCores[elemento.grupo] || "#EAEAEA";
   
         divElement.innerHTML = `
@@ -49,7 +48,7 @@ function showModal(elemento) {
     modal.style.display = 'block';
 }
 
-// Fechar modal
+
 closeBtn.onclick = () => modal.style.display = 'none';
 window.onclick = (event) => {
     if (event.target === modal) modal.style.display = 'none';
